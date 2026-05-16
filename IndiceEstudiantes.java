@@ -24,19 +24,6 @@ public class IndiceEstudiantes {
     public void setFactorCargaMax(Double factorCargaMax) {this.factorCargaMax = factorCargaMax;}
     public void setCantidadActual(int cantidadActual) {this.cantidadActual = cantidadActual;}
 
-    //CALCULO DE POSICION EN TABLA//
-    private int hash (String clave, int tamaño) {
-        int sumaclave=0;
-
-        //SUMA DE CARACTERES ASCII//
-        for (int contador=0; contador<clave.length(); contador++){
-            sumaclave+= (int)clave.charAt(contador);
-        }
-
-        //FUNCION//
-        return sumaclave % tamaño;
-    }
-
     //INSERTAR//
     public void insertar(Estudiante e) {
         //Asegurar que no hay legajos repetidos//
@@ -69,6 +56,18 @@ public class IndiceEstudiantes {
         else{
             System.out.println("ERROR: ya existe un estudiante con ese legajo");
         }
+    }
+
+    //CALCULO DE POSICION EN TABLA//
+    private int hash (String clave, int tamaño) {
+        int sumaclave=0;
+
+        //SUMA DE CARACTERES ASCII//
+        for (int contador=0; contador<clave.length(); contador++){
+            sumaclave+= (int)clave.charAt(contador);
+        }
+
+        return sumaclave % tamaño;
     }
 
     //BUSCAR//
